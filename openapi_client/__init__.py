@@ -17,7 +17,7 @@ from __future__ import absolute_import
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from openapi_client.api.borehole_api import BoreholeApi
+from openapi_client.api.boreholes_api import BoreholesApi
 from openapi_client.api.core_photos_api import CorePhotosApi
 
 # import ApiClient
@@ -29,11 +29,7 @@ from openapi_client.exceptions import ApiValueError
 from openapi_client.exceptions import ApiKeyError
 from openapi_client.exceptions import ApiException
 # import models into sdk package
-from openapi_client.models.borehole_input import BoreholeInput
-from openapi_client.models.borehole_output import BoreholeOutput
-from openapi_client.models.borehole_output_all_of import BoreholeOutputAllOf
-from openapi_client.models.core_photo_input import CorePhotoInput
-from openapi_client.models.core_photo_input_crop_corners import CorePhotoInputCropCorners
-from openapi_client.models.core_photo_output import CorePhotoOutput
-from openapi_client.models.core_photo_output_all_of import CorePhotoOutputAllOf
+from openapi_client.models.boreholes import Boreholes
+from openapi_client.models.core_photos import CorePhotos
+from openapi_client.models.core_photos_data import CorePhotosData
 

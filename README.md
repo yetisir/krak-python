@@ -57,15 +57,15 @@ configuration.host = "http://localhost/api"
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BoreholeApi(api_client)
-    borehole_input = openapi_client.BoreholeInput() # BoreholeInput | Borehole to create
+    api_instance = openapi_client.BoreholesApi(api_client)
+    boreholes = openapi_client.Boreholes() # Boreholes | Borehole to create
 
     try:
         # Create a new borehole
-        api_response = api_instance.borehole_create(borehole_input)
+        api_response = api_instance.boreholes_create(boreholes)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling BoreholeApi->borehole_create: %s\n" % e)
+        print("Exception when calling BoreholesApi->boreholes_create: %s\n" % e)
     
 ```
 
@@ -75,24 +75,23 @@ All URIs are relative to *http://localhost/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BoreholeApi* | [**borehole_create**](docs/BoreholeApi.md#borehole_create) | **POST** /borehole | Create a new borehole
-*BoreholeApi* | [**borehole_delete**](docs/BoreholeApi.md#borehole_delete) | **DELETE** /borehole/{borehole_id} | Delete a borehole
-*BoreholeApi* | [**borehole_read_all**](docs/BoreholeApi.md#borehole_read_all) | **GET** /borehole | Read all boreholes in db, sorted by id
-*BoreholeApi* | [**borehole_read_one**](docs/BoreholeApi.md#borehole_read_one) | **GET** /borehole/{borehole_id} | Read one borehole
-*BoreholeApi* | [**borehole_update**](docs/BoreholeApi.md#borehole_update) | **PUT** /borehole/{borehole_id} | Update a borehole
-*CorePhotosApi* | [**core_photo_create**](docs/CorePhotosApi.md#core_photo_create) | **POST** /core_photo | Create a new core photo
-*CorePhotosApi* | [**core_photo_read_all**](docs/CorePhotosApi.md#core_photo_read_all) | **GET** /core_photo | Read all core photo ids in db, sorted by id
+*BoreholesApi* | [**boreholes_create**](docs/BoreholesApi.md#boreholes_create) | **POST** /boreholes/ | Create a new borehole
+*BoreholesApi* | [**boreholes_delete**](docs/BoreholesApi.md#boreholes_delete) | **DELETE** /boreholes/{borehole_id} | Delete a borehole
+*BoreholesApi* | [**boreholes_read_all**](docs/BoreholesApi.md#boreholes_read_all) | **GET** /boreholes/ | Read all boreholes in db, sorted by id
+*BoreholesApi* | [**boreholes_read_one**](docs/BoreholesApi.md#boreholes_read_one) | **GET** /boreholes/{borehole_id} | Read one borehole
+*BoreholesApi* | [**boreholes_update**](docs/BoreholesApi.md#boreholes_update) | **PUT** /boreholes/{borehole_id} | Update a borehole
+*CorePhotosApi* | [**core_photos_create**](docs/CorePhotosApi.md#core_photos_create) | **POST** /boreholes/{borehole_id}/core_photos/ | Create a new core photo
+*CorePhotosApi* | [**core_photos_delete**](docs/CorePhotosApi.md#core_photos_delete) | **DELETE** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Delete a core_photo
+*CorePhotosApi* | [**core_photos_read_all**](docs/CorePhotosApi.md#core_photos_read_all) | **GET** /boreholes/{borehole_id}/core_photos/ | Read all core photo ids in db, sorted by id
+*CorePhotosApi* | [**core_photos_read_one**](docs/CorePhotosApi.md#core_photos_read_one) | **GET** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Read one core photo
+*CorePhotosApi* | [**core_photos_update**](docs/CorePhotosApi.md#core_photos_update) | **PUT** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Update a core_photo
 
 
 ## Documentation For Models
 
- - [BoreholeInput](docs/BoreholeInput.md)
- - [BoreholeOutput](docs/BoreholeOutput.md)
- - [BoreholeOutputAllOf](docs/BoreholeOutputAllOf.md)
- - [CorePhotoInput](docs/CorePhotoInput.md)
- - [CorePhotoInputCropCorners](docs/CorePhotoInputCropCorners.md)
- - [CorePhotoOutput](docs/CorePhotoOutput.md)
- - [CorePhotoOutputAllOf](docs/CorePhotoOutputAllOf.md)
+ - [Boreholes](docs/Boreholes.md)
+ - [CorePhotos](docs/CorePhotos.md)
+ - [CorePhotosData](docs/CorePhotosData.md)
 
 
 ## Documentation For Authorization
