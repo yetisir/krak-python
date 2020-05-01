@@ -172,6 +172,142 @@ class CorePhotosApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def core_photos_crop(self, borehole_id, core_photo_id, request_body, **kwargs):  # noqa: E501
+        """Crop a core photo  # noqa: E501
+
+        Crop a core photo  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.core_photos_crop(borehole_id, core_photo_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int borehole_id: Id of Borehole (required)
+        :param int core_photo_id: Id of core photo (required)
+        :param list[object] request_body: Core photo to crop (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[object]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.core_photos_crop_with_http_info(borehole_id, core_photo_id, request_body, **kwargs)  # noqa: E501
+
+    def core_photos_crop_with_http_info(self, borehole_id, core_photo_id, request_body, **kwargs):  # noqa: E501
+        """Crop a core photo  # noqa: E501
+
+        Crop a core photo  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.core_photos_crop_with_http_info(borehole_id, core_photo_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int borehole_id: Id of Borehole (required)
+        :param int core_photo_id: Id of core photo (required)
+        :param list[object] request_body: Core photo to crop (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[object], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'borehole_id',
+            'core_photo_id',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method core_photos_crop" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'borehole_id' is set
+        if self.api_client.client_side_validation and ('borehole_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['borehole_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `borehole_id` when calling `core_photos_crop`")  # noqa: E501
+        # verify the required parameter 'core_photo_id' is set
+        if self.api_client.client_side_validation and ('core_photo_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['core_photo_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `core_photo_id` when calling `core_photos_crop`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if self.api_client.client_side_validation and ('request_body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['request_body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `request_body` when calling `core_photos_crop`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'borehole_id' in local_var_params:
+            path_params['borehole_id'] = local_var_params['borehole_id']  # noqa: E501
+        if 'core_photo_id' in local_var_params:
+            path_params['core_photo_id'] = local_var_params['core_photo_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[object]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def core_photos_delete(self, borehole_id, core_photo_id, **kwargs):  # noqa: E501
         """Delete a core_photo  # noqa: E501
 
@@ -183,7 +319,7 @@ class CorePhotosApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int borehole_id: Id of Borehole (required)
-        :param int core_photo_id: Id of Borehole (required)
+        :param int core_photo_id: Id of Core Photo (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -209,7 +345,7 @@ class CorePhotosApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int borehole_id: Id of Borehole (required)
-        :param int core_photo_id: Id of Borehole (required)
+        :param int core_photo_id: Id of Core Photo (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -405,6 +541,129 @@ class CorePhotosApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def core_photos_read_cropped(self, borehole_id, core_photo_id, **kwargs):  # noqa: E501
+        """Read cropped core photo  # noqa: E501
+
+        Read cropped core photo  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.core_photos_read_cropped(borehole_id, core_photo_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int borehole_id: Id of Borehole (required)
+        :param int core_photo_id: Id of core photo (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[list]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.core_photos_read_cropped_with_http_info(borehole_id, core_photo_id, **kwargs)  # noqa: E501
+
+    def core_photos_read_cropped_with_http_info(self, borehole_id, core_photo_id, **kwargs):  # noqa: E501
+        """Read cropped core photo  # noqa: E501
+
+        Read cropped core photo  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.core_photos_read_cropped_with_http_info(borehole_id, core_photo_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int borehole_id: Id of Borehole (required)
+        :param int core_photo_id: Id of core photo (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[list], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'borehole_id',
+            'core_photo_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method core_photos_read_cropped" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'borehole_id' is set
+        if self.api_client.client_side_validation and ('borehole_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['borehole_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `borehole_id` when calling `core_photos_read_cropped`")  # noqa: E501
+        # verify the required parameter 'core_photo_id' is set
+        if self.api_client.client_side_validation and ('core_photo_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['core_photo_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `core_photo_id` when calling `core_photos_read_cropped`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'borehole_id' in local_var_params:
+            path_params['borehole_id'] = local_var_params['borehole_id']  # noqa: E501
+        if 'core_photo_id' in local_var_params:
+            path_params['core_photo_id'] = local_var_params['core_photo_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[list]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def core_photos_read_one(self, borehole_id, core_photo_id, **kwargs):  # noqa: E501
         """Read one core photo  # noqa: E501
 
@@ -416,7 +675,7 @@ class CorePhotosApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int borehole_id: Id of Borehole (required)
-        :param int core_photo_id: Id of Borehole (required)
+        :param int core_photo_id: Id of Core Photo (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -442,7 +701,7 @@ class CorePhotosApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int borehole_id: Id of Borehole (required)
-        :param int core_photo_id: Id of Borehole (required)
+        :param int core_photo_id: Id of Core Photo (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -539,7 +798,7 @@ class CorePhotosApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int borehole_id: Id of Borehole (required)
-        :param int core_photo_id: Id of Borehole (required)
+        :param int core_photo_id: Id of Core Photo (required)
         :param file photo: (required)
         :param CorePhotosData data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -567,7 +826,7 @@ class CorePhotosApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int borehole_id: Id of Borehole (required)
-        :param int core_photo_id: Id of Borehole (required)
+        :param int core_photo_id: Id of Core Photo (required)
         :param file photo: (required)
         :param CorePhotosData data: (required)
         :param _return_http_data_only: response data without head status code
@@ -666,6 +925,142 @@ class CorePhotosApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CorePhotos',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def core_photos_update_crop(self, borehole_id, core_photo_id, request_body, **kwargs):  # noqa: E501
+        """re-crop a core photo  # noqa: E501
+
+        re-crop a core photo  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.core_photos_update_crop(borehole_id, core_photo_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int borehole_id: Id of Borehole (required)
+        :param int core_photo_id: Id of core photo (required)
+        :param list[object] request_body: Core photo to crop (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[object]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.core_photos_update_crop_with_http_info(borehole_id, core_photo_id, request_body, **kwargs)  # noqa: E501
+
+    def core_photos_update_crop_with_http_info(self, borehole_id, core_photo_id, request_body, **kwargs):  # noqa: E501
+        """re-crop a core photo  # noqa: E501
+
+        re-crop a core photo  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.core_photos_update_crop_with_http_info(borehole_id, core_photo_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int borehole_id: Id of Borehole (required)
+        :param int core_photo_id: Id of core photo (required)
+        :param list[object] request_body: Core photo to crop (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[object], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'borehole_id',
+            'core_photo_id',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method core_photos_update_crop" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'borehole_id' is set
+        if self.api_client.client_side_validation and ('borehole_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['borehole_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `borehole_id` when calling `core_photos_update_crop`")  # noqa: E501
+        # verify the required parameter 'core_photo_id' is set
+        if self.api_client.client_side_validation and ('core_photo_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['core_photo_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `core_photo_id` when calling `core_photos_update_crop`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if self.api_client.client_side_validation and ('request_body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['request_body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `request_body` when calling `core_photos_update_crop`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'borehole_id' in local_var_params:
+            path_params['borehole_id'] = local_var_params['borehole_id']  # noqa: E501
+        if 'core_photo_id' in local_var_params:
+            path_params['core_photo_id'] = local_var_params['core_photo_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[object]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

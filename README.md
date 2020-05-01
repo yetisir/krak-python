@@ -46,20 +46,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 from __future__ import print_function
-
 import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "http://localhost/api"
-)
 
-
-
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -87,10 +81,13 @@ Class | Method | HTTP request | Description
 *BoreholesApi* | [**boreholes_read_one**](docs/BoreholesApi.md#boreholes_read_one) | **GET** /boreholes/{borehole_id} | Read one borehole
 *BoreholesApi* | [**boreholes_update**](docs/BoreholesApi.md#boreholes_update) | **PUT** /boreholes/{borehole_id} | Update a borehole
 *CorePhotosApi* | [**core_photos_create**](docs/CorePhotosApi.md#core_photos_create) | **POST** /boreholes/{borehole_id}/core_photos/ | Create a new core photo
+*CorePhotosApi* | [**core_photos_crop**](docs/CorePhotosApi.md#core_photos_crop) | **POST** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | Crop a core photo
 *CorePhotosApi* | [**core_photos_delete**](docs/CorePhotosApi.md#core_photos_delete) | **DELETE** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Delete a core_photo
 *CorePhotosApi* | [**core_photos_read_all**](docs/CorePhotosApi.md#core_photos_read_all) | **GET** /boreholes/{borehole_id}/core_photos/ | Read all core photo ids in db, sorted by id
+*CorePhotosApi* | [**core_photos_read_cropped**](docs/CorePhotosApi.md#core_photos_read_cropped) | **GET** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | Read cropped core photo
 *CorePhotosApi* | [**core_photos_read_one**](docs/CorePhotosApi.md#core_photos_read_one) | **GET** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Read one core photo
 *CorePhotosApi* | [**core_photos_update**](docs/CorePhotosApi.md#core_photos_update) | **PUT** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Update a core_photo
+*CorePhotosApi* | [**core_photos_update_crop**](docs/CorePhotosApi.md#core_photos_update_crop) | **PUT** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | re-crop a core photo
 
 
 ## Documentation For Models

@@ -26,12 +26,6 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "http://localhost/api"
-)
-
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient() as api_client:
@@ -88,12 +82,6 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "http://localhost/api"
-)
-
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient() as api_client:
@@ -149,12 +137,6 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "http://localhost/api"
-)
-
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient() as api_client:
@@ -207,12 +189,6 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "http://localhost/api"
-)
-
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient() as api_client:
@@ -269,12 +245,6 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "http://localhost/api"
-)
-
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient() as api_client:
